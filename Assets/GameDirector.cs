@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
 {
@@ -31,6 +32,13 @@ public class GameDirector : MonoBehaviour
 
         m += 0.1f;
         this.metersText.GetComponent<TextMeshProUGUI>().text = this.m.ToString("F0") + "m";
+
+        if (this.timeGauge.GetComponent<Image>().fillAmount == 0)
+        {
+            SceneManager.LoadScene("TitleScene");
+
+        }
+
 
     }
 

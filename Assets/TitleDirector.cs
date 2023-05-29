@@ -14,6 +14,9 @@ public class TitleDirector : MonoBehaviour
     
     void Update()
     {
-        
+        if (Input.GetAxisRaw("Fire1")!= 0 )
+        {
+            SceneManager.LoadScene("GameScene");
+        }
     }
 }
