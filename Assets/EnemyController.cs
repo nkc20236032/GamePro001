@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         //ˆÚ“®
-        transform.Translate(-0.02f, 0, 0);
+        transform.Translate(-0.05f, 0, 0);
         //‰æ–ÊŠO
         if (transform.position.x < -9.5f)
         {

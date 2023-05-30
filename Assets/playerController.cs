@@ -18,10 +18,18 @@ public class playerController : MonoBehaviour
 
     Animator animator;
 
+    [SerializeField] private GameObject shot; 
+    [SerializeField] private Transform shotPoint;
+
+    [SerializeField] private float shotTime = 0.2f; //UŒ‚‚ÌŠÔŠu
+    private float currentshotTime; //UŒ‚‚ÌŠÔŠu‚ğŠÇ—
+    private bool canshot; //UŒ‚‰Â”\ó‘Ô‚©‚ğw’è‚·‚éƒtƒ‰ƒO
 
     void Start()
     {
         this.animator = GetComponent<Animator>();
+
+        currentshotTime = shotTime;
     }
 
 
@@ -34,7 +42,6 @@ public class playerController : MonoBehaviour
 
         // y²•ûŒü‚ÌˆÚ“®”ÍˆÍ§ŒÀ
         pos.y = Mathf.Clamp(pos.y, _minY, _maxY);
-
 
         transform.position = pos;
 
@@ -59,5 +66,27 @@ public class playerController : MonoBehaviour
         }
 
         transform.position += dir.normalized * speed * Time.deltaTime;
+
+        Shot();
+    }
+
+    void Shot()
+    {
+        shotTime += Time.deltaTime;
+
+        if (shotTime > currentshotTime)
+        {
+            canshot = true;
+        }
+
+        if (Input.GetAxisRaw("Fire1") == 1)
+        {
+            if (canshot)
+            {
+                Instantiate(shot, shotPoint.position, transform.rotation);
+                canshot = false;
+                shotTime = 0;
+            }
+        }
     }
 }
