@@ -22,4 +22,13 @@ public class ShotController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        GameObject director = GameObject.Find("GameDirector");
+        director.GetComponent<GameDirector>().Score();
+
+        Destroy(col.gameObject);
+        Destroy(gameObject);
+    }
 }

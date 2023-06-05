@@ -18,7 +18,7 @@ public class playerController : MonoBehaviour
 
     Animator animator;
 
-    [SerializeField] private GameObject shot; 
+    [SerializeField] private GameObject shot;
     [SerializeField] private Transform shotPoint;
 
     [SerializeField] private float shotTime = 0.2f; //UŒ‚‚ÌŠÔŠu
@@ -49,20 +49,20 @@ public class playerController : MonoBehaviour
         Vector3 dir = Vector3.zero;
         float speed = 7;
 
-        dir.x = Input.GetAxisRaw("Horizontal");
-        dir.y = Input.GetAxisRaw("Vertical");
+        dir.x = Input.GetAxisRaw("Horizontal"); //¶‰E‚Ì“ü—Íî•ñ
+        dir.y = Input.GetAxisRaw("Vertical");   //ã‰º‚Ì“ü—Íî•ñ
 
         if (dir.y == 0)
         {
-            this.animator.SetTrigger("DefaultTrigger");
+            animator.Play("Player");
         }
         if (dir.y > 0)
         {
-            this.animator.SetTrigger("UpTrigger");
+            animator.Play("PlayerL");
         }
         if (dir.y < 0)
         {
-            this.animator.SetTrigger("DownTrigger");
+            animator.Play("PlayerR");
         }
 
         transform.position += dir.normalized * speed * Time.deltaTime;

@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         //ˆÚ“®
-        transform.Translate(-0.05f, 0, 0);
+        transform.Translate(-0.1f, 0, 0);
         //‰æ–ÊŠO
         if (transform.position.x < -9.5f)
         {
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
         Vector2 p2 = this.player.transform.position;
         Vector2 dir = p1 - p2;
         float d = dir.magnitude;
-        float rEn = 0.6f;
+        float rEn = 0.7f;
         float rPl = 0.3f;
 
         if (d < rEn + rPl)
